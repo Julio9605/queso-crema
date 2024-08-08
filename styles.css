@@ -31,7 +31,25 @@ main.info-producto {
 h1, h2, p {
     margin: 10px 0; /* Espacio vertical alrededor de los encabezados y párrafos */
 }
+@media (max-width: 600px) {
+    form {
+        padding: 10px;
+    }
 
+    button.btn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    header, footer {
+        padding: 15px;
+    }
+}
 .imagen-producto {
     max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
     height: 50px; /* Mantiene la proporción de la imagen */
