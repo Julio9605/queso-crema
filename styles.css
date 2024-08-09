@@ -180,7 +180,7 @@ footer {
 }
 }
 .imagen-producto {
-    max-width: 100%;
+    max-width: 40%;
     height: auto;
     border-radius: 10px;
 }
@@ -191,8 +191,8 @@ footer {
 }
 .btn {
     display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
+    padding: 5px 10px;
+    margin: 5px;
     background-color: #28a745;
     color: white;
     text-decoration: none;
