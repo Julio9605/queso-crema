@@ -23,8 +23,8 @@ header, footer {
 .carrusel {
     position: relative;
     margin: 5px auto;
-    width: 800px; /* Ajusta el tamaño según sea necesario */
-    height: 500px; /* Ajusta el tamaño según sea necesario */
+    width: 500px; /* Ajusta el tamaño según sea necesario */
+    height: 300px; /* Ajusta el tamaño según sea necesario */
     overflow: hidden;
 }
 
