@@ -9,16 +9,37 @@
 <body>
     <header>
         <h1>Bienvenidos a la Tienda de Quesos</h1>
- <div class="contenedor-logo">
-        <img src="cielo cremoso.png" alt="Logo de la Tienda" class="logo">
-   </div>
+        <div class="contenedor-logo">
+            <img src="cielo cremoso.png" alt="Logo de la Tienda" class="logo">
+        </div>
     </header>
     <nav>
         <a href="productos.html" class="btn">Ver Productos</a>
         <a href="compras.html" class="btn">Realizar Compras</a>
     </nav>
+
+    <!-- Carrusel de imágenes -->
+    <div class="carrusel">
+        <img src="quienes somos.png" class="imagen-carrusel activo" alt="Queso 1">
+        <img src="mision.png" class="imagen-carrusel" alt="Queso 2">
+        
+    </div>
+
     <footer>
         <p>&copy; 2024 Tienda de Quesos</p>
     </footer>
+
+    <script>
+        let indiceActual = 0;
+        const imagenes = document.querySelectorAll('.imagen-carrusel');
+
+        function cambiarImagen() {
+            imagenes[indiceActual].classList.remove('activo');
+            indiceActual = (indiceActual + 1) % imagenes.length;
+            imagenes[indiceActual].classList.add('activo');
+        }
+
+        setInterval(cambiarImagen, 10000); // Cambia cada 10 segundos
+    </script>
 </body>
 </html>
