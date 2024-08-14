@@ -30,7 +30,7 @@ header, footer {
 
 .carrusel {
     position: relative;
-    margin: 200px auto;
+    margin: 300px auto;
     width: 1300px; /* Ajusta el tamaño según sea necesario */
     height: 800px; /* Ajusta el tamaño según sea necesario */
     overflow: hidden;
@@ -221,8 +221,8 @@ footer {
 }
 .btn {
     display: inline-block;
-    padding: 15px 30px;
-    margin: 5px;
+    padding: 35px 50px;
+    margin: 20px;
     background-color: #28a745;
     color: white;
     text-decoration: none;
