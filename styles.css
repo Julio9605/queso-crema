@@ -30,7 +30,7 @@ header, footer {
 
 .carrusel {
     position: relative;
-    margin: 100px auto;
+    margin: 200px auto;
     width: 1300px; /* Ajusta el tamaño según sea necesario */
     height: 800px; /* Ajusta el tamaño según sea necesario */
     overflow: hidden;
@@ -119,7 +119,7 @@ footer a:hover {
 .logo {
     max-width: 100%; /* Ajusta el tamaño de la imagen para que no exceda el ancho de la pantalla */
     height: auto; /* Mantiene la proporción de la imagen */
-    max-width: 400px; /* Ajusta el tamaño máximo de la imagen */
+    max-width: 700px; /* Ajusta el tamaño máximo de la imagen */
 
 }
 main.info-producto {
@@ -142,7 +142,7 @@ h1, h2, p {
 header {
     background-color: #ffa74f;
     color: white;
-    padding: 30px;
+    padding: 50px;
 }
 .fondo-imagen {
     position: absolute;
@@ -221,7 +221,7 @@ footer {
 }
 .btn {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 15px 30px;
     margin: 5px;
     background-color: #28a745;
     color: white;
