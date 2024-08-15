@@ -4,6 +4,7 @@ body {
     padding: 10px;
     background-color: #fcfbfa;
     text-align: center;
+    overflow-y: auto;
 }
 
 .centrado {
