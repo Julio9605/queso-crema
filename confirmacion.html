@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Confirmación de Pedido</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="fondo-imagen"></div>
+    <header>
+        <h1>Confirmación de Pedido</h1>
+    </header>
+    <section>
+        <h2>Detalles del Pedido</h2>
+        <p><strong>Nombre:</strong> <span id="confirmacion-nombre"></span></p>
+        <p><strong>Teléfono:</strong> <span id="confirmacion-telefono"></span></p>
+        <p><strong>Correo Electrónico:</strong> <span id="confirmacion-correo"></span></p>
+        <p><strong>Dirección:</strong> <span id="confirmacion-direccion"></span></p>
+        <p><strong>Producto:</strong> <span id="confirmacion-producto"></span></p>
+        <p><strong>Cantidad:</strong> <span id="confirmacion-cantidad"></span></p>
+        <p><strong>Total a Pagar:</strong> $<span id="confirmacion-total"></span></p>
+        <p><strong>Indicaciones:</strong> <span id="confirmacion-indicaciones"></span></p>
+
+        <button id="confirmar-pedido" class="btn">Confirmar Pedido</button>
+        <button id="cancelar-pedido" class="btn">Cancelar Pedido</button>
+
+        <!-- Mensaje de éxito -->
+        <div id="mensaje-exito" style="display: none; color: green; font-size: 2em; font-weight: bold; margin-top: 20px;">
+            ¡Pedido realizado con éxito! Lo estaremos contactando, ¡gracias!
+        </div>
+    </section>
+    <footer>
+        <a href="compras.html" class="btn">Volver a Compras</a>
+    </footer>
+    <script>
+        // Recupera los datos del pedido desde localStorage
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('confirmacion-nombre').textContent = localStorage.getItem('nombre');
+            document.getElementById('confirmacion-telefono').textContent = localStorage.getItem('telefono');
+            document.getElementById('confirmacion-correo').textContent = localStorage.getItem('correo');
+            document.getElementById('confirmacion-direccion').textContent = localStorage.getItem('direccion');
+            document.getElementById('confirmacion-producto').textContent = localStorage.getItem('producto');
+            document.getElementById('confirmacion-cantidad').textContent = localStorage.getItem('cantidad');
+            document.getElementById('confirmacion-total').textContent = localStorage.getItem('total');
+
+            // Recuperar y mostrar las indicaciones adicionales, si existen
+            const indicaciones = localStorage.getItem('indicaciones');
+            document.getElementById('confirmacion-indicaciones').textContent = indicaciones ? indicaciones : "Ninguna";
+        });
+
+        // Maneja la confirmación del pedido
+        document.getElementById('confirmar-pedido').addEventListener('click', function() {
+            const mensajeExito = document.getElementById('mensaje-exito');
+            mensajeExito.style.display = 'block';
+
+            // Oculta el mensaje de éxito después de 4 segundos
+            setTimeout(() => {
+                mensajeExito.style.display = 'none';
+            }, 4000);
+        });
+
+        // Maneja la cancelación del pedido
+        document.getElementById('cancelar-pedido').addEventListener('click', function() {
+            window.location.href = 'compras.html';
+        });
+    </script>
+</body>
+</html>
