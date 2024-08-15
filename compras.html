@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Compras - Tienda de Quesos</title>
     <link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" href="celular styles.css" media="screen and (max-width: 800px)">
 </head>
 <body>
     <div class="fondo-imagen"></div>
@@ -13,7 +13,7 @@
         <h1>Realizar Compras</h1>
     </header>
     <section>
-        <form id="form-compra" action="#" method="post">
+        <form id="form-compra" action="confirmacion.html" method="post" onsubmit="guardarDatosPedido()">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
             
@@ -27,35 +27,27 @@
             <input type="text" id="direccion" name="direccion" required>
 
             <label for="producto">Producto:</label>
-            <select id="producto" name="producto" onchange="actualizarPrecio()">
-                <option value="manchego">Queso crema 8 oz </option>
+            <select id="producto" name="producto" onchange="calcularTotal()">
+                <option value="Queso Crema">Queso crema 8 oz</option>
             </select>
 
             <label for="cantidad">Cantidad:</label>
             <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="20" onchange="calcularTotal()">
 
             <p>Precio Unitario: $<span id="precio-unitario">350.00</span></p>
-            <p>Total a Pagar: $<span id="total">350.00</span></p> <!-- Total dinámico -->
+            <p>Total a Pagar: $<span id="total">350.00</span></p>
 
             <label for="indicaciones">Indicaciones adicionales:</label>
             <textarea id="indicaciones" name="indicaciones" rows="4" placeholder="Escribe aquí cualquier indicación adicional..."></textarea>
 
             <button type="submit" class="btn">Enviar Pedido</button>
         </form>
-        
-        <!-- Mensaje de éxito -->
-<div
-    id="mensaje-exito" style="display: none; color: green; font-size: 4.5em; font-weight: bold; margin-top: 20px;">
-                        ¡Pedido realizado con éxito!
-</div>
-        
+
         <!-- Imagen debajo del formulario -->
         <div class="imagenp">
-            <img src="6.png" alt="Descripción de la imagen" style="max-width:80%; height:auto; margin-top:120px;">
-    </div>   
+            <img src="6.png" alt="Descripción de la imagen" style="max-width:80%; height:auto; margin-top:100px;">
+        </div>
 
-        
-        
     </section>
     <footer>
         <a href="index.html" class="btn">Volver a Inicio</a>
@@ -76,27 +68,27 @@
             calcularTotal();
         });
 
-        // Función para mostrar el mensaje de éxito
-        document.getElementById('form-compra').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita el envío real del formulario
+        // Función para guardar los datos del pedido en localStorage
+        function guardarDatosPedido() {
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const correo = document.getElementById('correo').value;
+            const direccion = document.getElementById('direccion').value;
+            const producto = document.getElementById('producto').value;
+            const cantidad = document.getElementById('cantidad').value;
+            const total = document.getElementById('total').textContent;
+            const indicaciones = document.getElementById('indicaciones').value;
 
-            // Muestra el mensaje de éxito
-            const mensajeExito = document.getElementById('mensaje-exito');
-            mensajeExito.style.display = 'block';
-
-            // Oculta el mensaje de éxito después de 3 segundos (3000 ms)
-            setTimeout(() => {
-                mensajeExito.style.display = 'none';
-            }, 3000);
-
-            // Opcional: limpia el formulario después de mostrar el mensaje
-            this.reset();
-
-            // Vuelve a calcular el total con la cantidad restablecida
-            calcularTotal();
-        });
+            localStorage.setItem('nombre', nombre);
+            localStorage.setItem('telefono', telefono);
+            localStorage.setItem('correo', correo);
+            localStorage.setItem('direccion', direccion);
+            localStorage.setItem('producto', producto);
+            localStorage.setItem('cantidad', cantidad);
+            localStorage.setItem('total', total);
+            localStorage.setItem('indicaciones', indicaciones);
+        }
     </script>
 </body>
 </html>
-
 
