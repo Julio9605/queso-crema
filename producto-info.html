@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del Producto - Tienda de Quesos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ <div class="fondo-imagen"></div>
+    <header>
+        <h1>Queso Crema</h1>
+    </header>
+    <main class="centrado">
+        <img src="crema.jpeg" alt="Queso crema" width="250">
+        <p class="descripcion">
+           <span class="destacado"> Es un queso deliciosamente cremoso        
+</p>
+  <p class="descripcion">
+           <span class="destacado">  y el mejor aliado de tus comidas.   
+ </p>
+  <p class="descripcion">
+            <span class="destacado"> Ideal para tus almuerzos y cenas.
+        </p>
+
+ <p class="descripcion">
+            
+        </p>
+ <p class="descripcion">
+          
+        </p>
+
+        <p class="descripcion"><span class="destacado">Precio: $350.00</p>
+<a href="compras.html" class="btn-compra">Comprar Ahora</a>
+    </main>
+
+    
+    <footer class= "footers">
+         <a href="productos.html" class="btn">Volver a Productos</a>
+    </footer>
+   <!-- JavaScript -->
+    <script>
+
+        // Mostrar footer solo cuando se llega al fondo de la página
+        window.addEventListener('scroll', () => {
+            const footers = document.querySelector('.footers');
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            const fullHeight = document.body.offsetHeight;
+
+            // Comprobar si el usuario ha llegado al final de la página
+            if (scrollY + viewportHeight >= fullHeight) {
+                footers.style.transform = 'translateY(0)'; // Muestra el footer
+            } else {
+                footers.style.transform = 'translateY(100%)'; // Oculta el footer
+            }
+        });
+    </script>
+</body>
+</html>

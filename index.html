@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tienda de Queso Crema</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body>
+<div class="fondo-imagen"></div>
+    <header>
+        <h1>Bienvenidos a la Tienda de Queso Crema</h1>
+        <div class="contenedor-logo">
+            <img src="cielo cremoso.png" alt="Logo de la Tienda" class="logo">
+        </div>
+    </header>
+    <nav>
+        <a href="productos.html" class="btnp">Ver Productos</a>
+        <a href="compras.html" class="btnp">Realizar Compras</a>
+        <a href="quienes somos.html" class="btnp">Acerca de Nosotros</a>
+    </nav>
+
+    <!-- Carrusel de imágenes -->
+    <div class="carrusel">
+        <img src="1.png" class="imagen-carrusel activo" alt="Queso 1">
+        <img src="2.png" class="imagen-carrusel" alt="Queso 2">
+        <img src="3.png" class="imagen-carrusel" alt="Queso 3">
+        
+    </div>
+
+    
+<footer class="footers">
+    <p>&copy; 2024 Tienda de Quesos</p>
+</footer>
+
+    <script>
+        let indiceActual = 0;
+        const imagenes = document.querySelectorAll('.imagen-carrusel');
+
+        function cambiarImagen() {
+            imagenes[indiceActual].classList.remove('activo');
+            indiceActual = (indiceActual + 1) % imagenes.length;
+            imagenes[indiceActual].classList.add('activo');
+        }
+
+        setInterval(cambiarImagen, 5000); // Cambia cada 5 segundos
+
+
+        // Mostrar footer solo cuando se llega al fondo de la página
+        window.addEventListener('scroll', () => {
+            const footers = document.querySelector('.footers');
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            const fullHeight = document.body.offsetHeight;
+
+            // Comprobar si el usuario ha llegado al final de la página
+            if (scrollY + viewportHeight >= fullHeight) {
+                footers.style.transform = 'translateY(0)'; // Muestra el footer
+            } else {
+                footers.style.transform = 'translateY(100%)'; // Oculta el footer
+            }
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #fcfbfa;
+    text-align: center;
+}
+
+.centrado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    text-align: center; /* Además, centra el texto dentro del párrafo */
+    height: 100%; /* Asegura que ocupa toda la altura de la pantalla */
+    margin: 30px auto;
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .centrado {
+        margin: 10px auto;
+    }
+    
+    .carrusel {
+        width: 100%;
+        height: auto;
+    }
+
+    .imagen-producto {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .btn-compra, .btn, .btnp {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    header, footer {
+        padding: 10px;
+        text-align: center;
+    }
+
+}
+/* CSS para el footer fijo y con animación */
+.footers {
+    background-color: #ffa74f;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    margin: 0px auto;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0); /* Posición inicial, visible */
+    z-index: 10; /* Asegura que esté por encima del contenido */
+}
+
+.Descripción de la imagen {
+    width: 80%; 
+    height: auto;
+    margin-top: 30px;
+}
+
+header, footer {
+    background-color: #f8f9fa;
+    padding: 15px;
+}
+
+.carrusel {
+    position: relative;
+    margin: 40px auto;
+    width: 900px; /* Ajusta el tamaño según sea necesario */
+    height: 600px; /* Ajusta el tamaño según sea necesario */
+    overflow: hidden;
+}
+
+.imagen-carrusel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.imagen-carrusel.activo {
+    opacity: 1;
+}
+
+main.info-producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra verticalmente el contenido si hay suficiente altura */
+    padding: 20px;
+}
+
+h1, h2, p {
+    margin: 10px 0; /* Espacio vertical alrededor de los encabezados y párrafos */
+}
+
+.imagen-producto {
+    max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin: 10px 0; /* Espacio vertical alrededor de la imagen */
+}
+header {
+    background-color: #ffa74f;
+    color: white;
+    padding: 30px;
+}
+footer a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer a:hover {
+    background-color: #0056b3;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    max-width: 400px;
+    width: 100%;
+}
+
+label, select, input, p {
+    display: block;
+    margin: 10px 0;
+    text-align: left;
+    width: 100%;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.contenedor-logo {
+    text-align: center;
+}
+
+.logo {
+    max-width: 100%; /* Ajusta el tamaño de la imagen para que no exceda el ancho de la pantalla */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-width: 400px; /* Ajusta el tamaño máximo de la imagen */
+}
+
+.fondo-imagen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-image: url('fondo de queso.jpg'); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1; /* Ajusta la opacidad al 70% */
+    z-index: -1; /* Envía la imagen detrás del contenido */
+}
+
+.btn-compra {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px; /* Espacio extra entre el botón y el contenido superior */
+    margin-bottom: 110px;
+}
+
+/* Estilo del botón al pasar el mouse por encima */
+.btn-compra:hover {
+    background-color: #218838;
+}
+
+header, section, footer {
+    position: relative;
+    z-index: 1; /* Asegúrate de que el contenido esté por encima de la imagen de fondo */
+    padding: 20px;
+}
+
+/* Estilo para agrandar texto y ponerlo en negrita */
+.destacado {
+    font-size: 2.5em; /* Agranda el texto al 150% del tamaño original */
+    font-weight: bold; /* Pone el texto en negrita */
+}
+
+/* Estilo para agrandar texto y ponerlo en negrita */
+.destacado2 {
+    font-size: 1.5em; /* Agranda el texto al 150% del tamaño original */
+    font-weight: bold; /* Pone el texto en negrita */
+}
+
+.productos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+nav, footer {
+    margin: 20px 0;
+}
+
+footer {
+    background-color: #ffa74f;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0px auto;
+    width: 100%;
+}
+
+.imagen-producto {
+    max-width: 40%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Centrar el texto dentro del párrafo con la clase .descripcion */
+.descripcion {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btnp {
+    display: inline-block;
+    padding: 20px 30px;
+    margin: 10px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btnp:hover {
+    background-color: #218838;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+.producto {
+    background-color: white;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+}
+
