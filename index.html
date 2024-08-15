@@ -48,22 +48,7 @@
         setInterval(cambiarImagen, 5000); // Cambia cada 5 segundos
 
 
-        // Mostrar footer solo cuando se llega al fondo de la página
-        window.addEventListener('scroll', () => {
-            const footers = document.querySelector('.footers');
-            const scrollY = window.scrollY;
-            const viewportHeight = window.innerHeight;
-            const fullHeight = document.body.offsetHeight;
-
-            // Comprobar si el usuario ha llegado al final de la página
-            if (scrollY + viewportHeight >= fullHeight) {
-                footers.style.transform = 'translateY(0)'; // Muestra el footer
-            } else {
-                footers.style.transform = 'translateY(100%)'; // Oculta el footer
-            }
-        });
-
-    </script>
+    
 
 </body>
 </html>
