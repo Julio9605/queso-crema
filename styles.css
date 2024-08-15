@@ -46,8 +46,8 @@ header, footer {
 .carrusel {
     position: relative;
     margin: 40px auto;
-    width: 700px; /* Ajusta el tamaño según sea necesario */
-    height: 500px; /* Ajusta el tamaño según sea necesario */
+    width: 500px; /* Ajusta el tamaño según sea necesario */
+    height: 200px; /* Ajusta el tamaño según sea necesario */
     overflow: hidden;
 }
 
@@ -78,7 +78,7 @@ h1, h2, p {
 }
 
 .imagen-producto {
-    max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    max-width: 70%; /* Ajusta la imagen al ancho del contenedor */
     height: auto; /* Mantiene la proporción de la imagen */
     margin: 10px 0; /* Espacio vertical alrededor de la imagen */
 }
@@ -226,7 +226,7 @@ footer {
 
 .btn {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 10px 10px;
     margin: 5px;
     background-color: #28a745;
     color: white;
