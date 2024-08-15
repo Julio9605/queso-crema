@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Compras - Tienda de Quesos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="celular styles.css" media="screen and (max-width: 800px)">
+    <style>
+        /* Estilos para el modal */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #mensaje-exito {
+            display: none;
+            color: green;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="fondo-imagen"></div>
+    <header>
+        <h1>Realizar Compras</h1>
+    </header>
+    <section>
+        <form id="form-compra" action="#" method="post" onsubmit="event.preventDefault(); mostrarConfirmacion();">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required>
+
+            <label for="producto">Producto:</label>
+            <select id="producto" name="producto" onchange="calcularTotal()">
+                <option value="Queso Crema">Queso crema 8 oz</option>
+            </select>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="20" onchange="calcularTotal()">
+
+            <p>Precio Unitario: $<span id="precio-unitario">350.00</span></p>
+            <p>Total a Pagar: $<span id="total">350.00</span></p>
+
+            <label for="indicaciones">Indicaciones adicionales:</label>
+            <textarea id="indicaciones" name="indicaciones" rows="4" placeholder="Escribe aquí cualquier indicación adicional..."></textarea>
+
+            <button type="submit" class="btn">Enviar Pedido</button>
+        </form>
+
+        <!-- Imagen debajo del formulario -->
+        <div class="imagenp">
+            <img src="6.png" alt="Descripción de la imagen" style="max-width:80%; height:auto; margin-top:100px;">
+        </div>
+    </section>
+
+    <!-- Modal de Confirmación -->
+    <div id="modal-confirmacion" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Confirmación de Pedido</h2>
+            <p><strong>Nombre:</strong> <span id="confirmacion-nombre"></span></p>
+            <p><strong>Teléfono:</strong> <span id="confirmacion-telefono"></span></p>
+            <p><strong>Correo Electrónico:</strong> <span id="confirmacion-correo"></span></p>
+            <p><strong>Dirección:</strong> <span id="confirmacion-direccion"></span></p>
+            <p><strong>Producto:</strong> <span id="confirmacion-producto"></span></p>
+            <p><strong>Cantidad:</strong> <span id="confirmacion-cantidad"></span></p>
+            <p><strong>Total a Pagar:</strong> $<span id="confirmacion-total"></span></p>
+            <p><strong>Indicaciones:</strong> <span id="confirmacion-indicaciones"></span></p>
+
+            <button onclick="confirmarPedido()" class="btn">Confirmar Pedido</button>
+            <button onclick="cerrarModal()" class="btn">Cancelar</button>
+
+            <!-- Mensaje de éxito -->
+            <div id="mensaje-exito">
+                ¡Pedido realizado con éxito! Lo estaremos contactando, ¡gracias!
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html" class="btn">Volver a Inicio</a>
+    </footer>
+    <script>
+        // Precio unitario del producto
+        const precioUnitario = 350.00;
+
+        // Función para calcular el total
+        function calcularTotal() {
+            const cantidad = document.getElementById('cantidad').value;
+            const total = precioUnitario * cantidad;
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+
+        // Inicializar el precio total cuando se carga la página
+        document.addEventListener('DOMContentLoaded', (event) => {
+            calcularTotal();
+        });
+
+        // Función para mostrar el modal de confirmación con los datos ingresados
+        function mostrarConfirmacion() {
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const correo = document.getElementById('correo').value;
+            const direccion = document.getElementById('direccion').value;
+            const producto = document.getElementById('producto').value;
+            const cantidad = document.getElementById('cantidad').value;
+            const total = document.getElementById('total').textContent;
+            const indicaciones = document.getElementById('indicaciones').value;
+
+            document.getElementById('confirmacion-nombre').textContent = nombre;
+            document.getElementById('confirmacion-telefono').textContent = telefono;
+            document.getElementById('confirmacion-correo').textContent = correo;
+            document.getElementById('confirmacion-direccion').textContent = direccion;
+            document.getElementById('confirmacion-producto').textContent = producto;
+            document.getElementById('confirmacion-cantidad').textContent = cantidad;
+            document.getElementById('confirmacion-total').textContent = total;
+            document.getElementById('confirmacion-indicaciones').textContent = indicaciones || "Ninguna";
+
+            document.getElementById('modal-confirmacion').style.display = "block";
+        }
+
+        // Función para confirmar el pedido
+        function confirmarPedido() {
+            const mensajeExito = document.getElementById('mensaje-exito');
+            mensajeExito.style.display = 'block';
+
+            // Ocultar mensaje de éxito después de 4 segundos y limpiar el formulario
+            setTimeout(() => {
+                mensajeExito.style.display = 'none';
+                cerrarModal();
+                document.getElementById('form-compra').reset(); // Limpiar formulario
+                calcularTotal(); // Restablecer el total
+            }, 4000);
+        }
+
+        // Función para cerrar el modal
+        function cerrarModal() {
+            document.getElementById('modal-confirmacion').style.display = "none";
+        }
+
+        // Cerrar el modal si el usuario hace clic fuera del contenido
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal-confirmacion');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
