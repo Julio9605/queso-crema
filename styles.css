@@ -69,27 +69,6 @@ header, footer {
 .imagen-carrusel.activo {
     opacity: 1;
 }
-.carruser {
-    position: relative;
-    margin: 40px auto;
-    width: 700px; /* Ajusta el tamaño según sea necesario */
-    height: 400px; /* Ajusta el tamaño según sea necesario */
-    overflow: hidden;
-}
-
-.imagen-carruser {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.imagen-carruser.activo {
-    opacity: 1;
-}
 
 main.info-producto {
     display: flex;
