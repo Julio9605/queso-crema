@@ -105,7 +105,6 @@
             <p><strong>Dirección:</strong> <span id="confirmacion-direccion"></span></p>
             <p><strong>Producto:</strong> <span id="confirmacion-producto"></span></p>
             <p><strong>Cantidad:</strong> <span id="confirmacion-cantidad"></span></p>
-            <p><strong>Costo de Delivery:</strong> $<span id="confirmacion-delivery"></span></p>
             <p><strong>Total a Pagar:</strong> $<span id="confirmacion-total"></span></p>
             <p><strong>Indicaciones:</strong> <span id="confirmacion-indicaciones"></span></p>
 
@@ -160,7 +159,6 @@
             document.getElementById('confirmacion-producto').textContent = producto;
             document.getElementById('confirmacion-cantidad').textContent = cantidad;
             document.getElementById('confirmacion-total').textContent = total;
-            document.getElementById('confirmacion-delivery').textContent = costoDelivery.toFixed(2);
             document.getElementById('confirmacion-indicaciones').textContent = indicaciones || "Ninguna";
 
             document.getElementById('modal-confirmacion').style.display = "block";
@@ -195,4 +193,3 @@
     </script>
 </body>
 </html>
-
