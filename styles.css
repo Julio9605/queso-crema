@@ -256,7 +256,7 @@ footer {
 }
 
 .imagenp img {
-    width: 700px; /* Cambia este valor para ajustar el tamaño de la imagen */
+    width: 400px; /* Cambia este valor para ajustar el tamaño de la imagen */
     height: auto; /* Mantiene las proporciones de la imagen */
 }
 .btnp:hover {
