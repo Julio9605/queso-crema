@@ -248,7 +248,17 @@ footer {
     text-decoration: none;
     border-radius: 5px;
 }
+.imagenp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px; /* Ajusta este valor según tus necesidades */
+}
 
+.imagenp img {
+    width: 700px; /* Cambia este valor para ajustar el tamaño de la imagen */
+    height: auto; /* Mantiene las proporciones de la imagen */
+}
 .btnp:hover {
     background-color: #218838;
 }
