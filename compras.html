@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <title>Compras - Tienda de Quesos</title>
     <link rel="stylesheet" href="styles.css">
-    
+
     <style>
         /* Estilos para el modal */
         .modal {
@@ -51,6 +51,7 @@
     </style>
 </head>
 <body>
+
     <div class="fondo-imagen"></div>
     <header>
         <h1>Realizar Compras</h1>
@@ -78,7 +79,8 @@
             <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="20" onchange="calcularTotal()">
 
             <p>Precio Unitario: $<span id="precio-unitario">350.00</span></p>
-            <p>Total a Pagar: $<span id="total">350.00</span></p>
+            <p>Costo de Delivery: $<span id="costo-delivery">50.00</span></p>
+            <p>Total a Pagar: $<span id="total">400.00</span></p>
 
             <label for="indicaciones">Indicaciones adicionales:</label>
             <textarea id="indicaciones" name="indicaciones" rows="4" placeholder="Escribe aquí cualquier indicación adicional..."></textarea>
@@ -88,7 +90,7 @@
 
         <!-- Imagen debajo del formulario -->
         <div class="imagenp">
-            <img src="6.png" alt="Descripción de la imagen" style="max-width:80%; height:auto; margin-top:100px;">
+            <img src="6.png" alt="Descripción de la imagen">
         </div>
     </section>
 
@@ -103,6 +105,7 @@
             <p><strong>Dirección:</strong> <span id="confirmacion-direccion"></span></p>
             <p><strong>Producto:</strong> <span id="confirmacion-producto"></span></p>
             <p><strong>Cantidad:</strong> <span id="confirmacion-cantidad"></span></p>
+            <p><strong>Costo de Delivery:</strong> $<span id="confirmacion-delivery"></span></p>
             <p><strong>Total a Pagar:</strong> $<span id="confirmacion-total"></span></p>
             <p><strong>Indicaciones:</strong> <span id="confirmacion-indicaciones"></span></p>
 
@@ -123,10 +126,14 @@
         // Precio unitario del producto
         const precioUnitario = 350.00;
 
+        // Costo de delivery
+        const costoDelivery = 50.00;
+
         // Función para calcular el total
         function calcularTotal() {
             const cantidad = document.getElementById('cantidad').value;
-            const total = precioUnitario * cantidad;
+            const totalProducto = precioUnitario * cantidad;
+            const total = totalProducto + costoDelivery;
             document.getElementById('total').textContent = total.toFixed(2);
         }
 
@@ -153,6 +160,7 @@
             document.getElementById('confirmacion-producto').textContent = producto;
             document.getElementById('confirmacion-cantidad').textContent = cantidad;
             document.getElementById('confirmacion-total').textContent = total;
+            document.getElementById('confirmacion-delivery').textContent = costoDelivery.toFixed(2);
             document.getElementById('confirmacion-indicaciones').textContent = indicaciones || "Ninguna";
 
             document.getElementById('modal-confirmacion').style.display = "block";
@@ -187,3 +195,4 @@
     </script>
 </body>
 </html>
+
